@@ -38,7 +38,7 @@ namespace Tyuiu.ZaripovEO.Sprint5.Task0.V30
             string res = ds.SaveToFileTextData(x);
 
             Console.WriteLine("Файл: " + res);
-            Console.WriteLine("Создан!");
+            Console.WriteLine("Создан!"); 
             Console.ReadKey();
         }
     }

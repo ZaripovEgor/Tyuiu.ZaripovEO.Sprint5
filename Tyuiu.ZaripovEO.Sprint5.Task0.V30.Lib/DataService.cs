@@ -18,7 +18,7 @@ namespace Tyuiu.ZaripovEO.Sprint5.Task0.V30.Lib
             z = Math.Round(z, 3);
 
             File.WriteAllText(path, Convert.ToString(z));
-            return path;
+            return path; 
         }
     }
 }
