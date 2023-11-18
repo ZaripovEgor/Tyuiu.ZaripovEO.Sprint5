@@ -3,40 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tyuiu.ZaripovEO.Sprint5.Task1.V3.Lib;
+using Tyuiu.ZaripovEO.Sprint5.Task2.V8.Lib;
 
-namespace Tyuiu.ZaripovEO.Sprint5.Task1.V3
+namespace Tyuiu.ZaripovEO.Sprint5.Task2.V8
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int startValue = -5;
-            int stopValue = 5;
+            int[,] matrix = new int[3, 3] { { -9,4,-6 }, { 3,9,9 }, { -6,7,-4 } };
+            int rows = matrix.GetUpperBound(0) + 1;
+            int columns = matrix.Length / rows;
 
             DataService ds = new DataService();
             Console.Title = "Спринт №5 | Выполнил: Зарипов Е. О. | ИСТНб-23-1";
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #5                                                               *");
-            Console.WriteLine("* Тема: Класс File. Запись набора данных в текстовый файл                 *");
-            Console.WriteLine("* Задание #1                                                              *");
-            Console.WriteLine("* Вариант #3                                                              *");
+            Console.WriteLine("* Тема: Класс File. Запись структурированных данных в текстовый файл      *");
+            Console.WriteLine("* Задание #2                                                              *");
+            Console.WriteLine("* Вариант #8                                                              *");
             Console.WriteLine("* Выполнил: Зарипов Егор Олегович | ИСТНб-23-1                            *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                *");
-            Console.WriteLine("* Дана функция f(x) на заданном диапазоне [-5; 5] с шагом 1.              *");
-            Console.WriteLine("* Произвести проверку деления на ноль. При делении на ноль вернуть 0.     *");
-            Console.WriteLine("* Результат сохранить в текстовый файл OutPutFileTaask1.txt и вывести их  *");
-            Console.WriteLine("* на консоль вв таблицу. Значения округлить до 2-ч знаков после запятой.  *");
+            Console.WriteLine("* Дан двумерный целочисленный массив 3 на 3 элементов,                    *");
+            Console.WriteLine("* заполненный значениями с клавиатуры. Заменить положительные элементы    *");
+            Console.WriteLine("* массива на 1, отрицательные на 0. Результат сохранить в файл            *");
+            Console.WriteLine("* OutPutFileTask2.csv и вывести на консоль.                               *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
-            Console.WriteLine("startValue = " + startValue);
-            Console.WriteLine("stopVaalue = " + stopValue);
+            Console.WriteLine(" Массив:");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write($"{matrix[i, j]} \t");
+                }
+                Console.WriteLine();
+            }
+
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
-            string res = ds.SaveToFileTextData(startValue, stopValue);
+            string res = ds.SaveToFileTextData(matrix);
 
 
             Console.WriteLine("Файл: " + res);
